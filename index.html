@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A3 Digital Poster - T Flip Flop Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print Poster</button>
+
+<div class="poster-a3">
+    <!-- Header -->
+    <div class="header">
+        <img src="images/logo-left.png" alt="Lokmanya Tilak Janakalyan Shikshan Sanstha Logo" class="header-logo">
+        <div class="header-text">
+            <h3>Priyadarshini Bhagwati College of Engineering, Nagpur</h3>
+            <h2>Department of Electronics & Telecommunication Engineering</h2>
+            <h1>DESIGN & IMPLEMENTATION OF T FLIP-FLOP</h1>
+            <div class="subtitle">Digital System Design using VHDL | Technical Activity 01</div>
+        </div>
+        <img src="images/logo-right.png" alt="Priyadarshini Bhagwati College of Engineering Logo" class="header-logo">
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid">
+        <!-- Abstract -->
+        <div class="card">
+            <h4>1. Abstract</h4>
+            <p>The T (Toggle) Flip-Flop is a single-input synchronous sequential circuit used for 1-bit binary storage. It complements its internal state on every active clock transition whenever input <code>T = 1</code>. This design covers theoretical logic verification, VHDL behavioral modeling, simulation waveforms, and target synthesis for FPGA hardware architecture.</p>
+        </div>
+
+        <!-- Objectives -->
+        <div class="card">
+            <h4>2. Objectives</h4>
+            <ul>
+                <li>Model a T Flip-Flop using VHDL behavioral architecture style.</li>
+                <li>Verify input-to-output logic state transitions via simulation.</li>
+                <li>Incorporate active-high synchronous reset control logic.</li>
+                <li>Synthesize circuit logic for Spartan-6 / Artix-7 FPGA boards.</li>
+            </ul>
+        </div>
+
+        <!-- Logic Model & Truth Table -->
+        <div class="card">
+            <h4>3. Logic & Mathematical Model</h4>
+            <p><strong>Characteristic Equation:</strong><br><code style="color: #38bdf8;">Q(next) = T ⊕ Q = T·Q' + T'·Q</code></p>
+            <table>
+                <tr>
+                    <th>RESET</th>
+                    <th>CLK</th>
+                    <th>T Input</th>
+                    <th>Q (Next)</th>
+                    <th>State Operation</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>0</td>
+                    <td>Reset State</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>↑</td>
+                    <td>0</td>
+                    <td>Q</td>
+                    <td>No Change (Hold)</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>↑</td>
+                    <td>1</td>
+                    <td>Q'</td>
+                    <td>Toggle State</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- VHDL Source Code -->
+        <div class="card">
+            <h4>4. VHDL Behavioral Code</h4>
+            <div class="code-block">process(CLK, RESET)
+begin
+    if RESET = '1' then
+        q_reg <= '0';
+    elsif rising_edge(CLK) then
+        if T = '1' then
+            q_reg <= not q_reg;
+        end if;
+    end if;
+end process;
+Q <= q_reg;
+Q_BAR <= not q_reg;</div>
+        </div>
+
+        <!-- Design Methodology Flow (Full Width) -->
+        <div class="card card-full">
+            <h4>5. System Design Methodology Flow</h4>
+            <div class="workflow">
+                <div class="flow-step">1. Requirement Analysis</div>
+                <div style="color:#38bdf8;">➔</div>
+                <div class="flow-step">2. VHDL Behavioral Code</div>
+                <div style="color:#38bdf8;">➔</div>
+                <div class="flow-step">3. ModelSim Simulation</div>
+                <div style="color:#38bdf8;">➔</div>
+                <div class="flow-step">4. RTL Synthesis</div>
+                <div style="color:#38bdf8;">➔</div>
+                <div class="flow-step">5. FPGA Implementation</div>
+            </div>
+        </div>
+
+        <!-- Applications & Performance -->
+        <div class="card card-full">
+            <h4>6. Practical Applications & Characteristics</h4>
+            <ul>
+                <li><strong>Frequency Division:</strong> Acts as a divide-by-2 frequency divider module in clock generation networks.</li>
+                <li><strong>Binary Counters:</strong> Cascading T Flip-Flops forms asynchronous (ripple) and synchronous binary counters.</li>
+                <li><strong>State Machine Controllers:</strong> Used in Finite State Machines (FSMs) requiring automated state toggling.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Banner -->
+    <div class="footer">
+        <div class="student-block">
+            <div><strong>Student Name:</strong> Siddhi Shyamuji Rinait</div>
+            <div><strong>Roll No:</strong> 41</div>
+            <div><strong>Semester/Branch:</strong> 5th Sem/ETC</div>
+        </div>
+        <div class="student-block">
+            <div><strong>Student Name:</strong> Ritesh Purushottam Alone</div>
+            <div><strong>Roll No:</strong> 42</div>
+            <div><strong>Semester/Branch:</strong> 5th Sem/ETC</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
