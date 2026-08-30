@@ -189,9 +189,9 @@ th {
 /* Footer Section */
 .footer {
     display: grid;
-    grid-template-columns: auto auto auto;
-    column-gap: 40px;
-    row-gap: 10px;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+    row-gap: 6px;
     align-items: center;
     margin-top: 16px;
     padding-top: 12px;
@@ -242,4 +242,28 @@ th {
     .print-btn {
         display: none;
     }
+}
+.teacher-row {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    justify-self: end;
+    align-self: center;
+    text-align: center;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1.5px solid #38bdf8;
+    border-radius: 8px;
+    padding: 6px 16px;
+}
+.teacher-row .teacher-label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #38bdf8;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.teacher-row .teacher-name {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #f8fafc;
 }
